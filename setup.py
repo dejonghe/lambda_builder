@@ -34,12 +34,12 @@ def find_version(*file_paths):
     raise RuntimeError("Unable to find version string.")
 
 setup(
-    name='lambda_build',
+    name='lambda_builder',
 
     # Versions should comply with PEP440.  For a discussion on single-sourcing
     # the version across setup.py and the project code, see
     # https://packaging.python.org/en/latest/single_source_version.html
-    version=find_version('lambda_build', '__init__.py'),
+    version=find_version('lambda_builder', '__init__.py'),
     #version='0.0.1',
 
     description='lambda_builder',
@@ -127,7 +127,7 @@ setup(
     # pip to create the appropriate form of executable for the target platform.
     entry_points={
         'console_scripts': [
-            'lambda_build = lambda_build:main'
+            'lambda_build = lambda_builder:main'
         ],
     },
 )

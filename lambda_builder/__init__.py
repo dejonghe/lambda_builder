@@ -1,7 +1,8 @@
 #!/usr/bin/env python
 
 import argparse
-from lambda_build.builder import LambdaBuilder
+import lambda_builder.logger
+from lambda_builder.builder import LambdaBuilder
 
 __version__ = '0.0.0'
 

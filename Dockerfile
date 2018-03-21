@@ -17,11 +17,11 @@ VOLUME /build
 COPY ./ /var/app/
 WORKDIR /var/app
 RUN python3.6 setup.py sdist && \
-    pip-3.6 install dist/lambda_build-0.0.0.tar.gz
+    pip-3.6 install dist/lambda_builder-0.0.0.tar.gz
 
 
 WORKDIR /build 
 
 
 
-CMD lambda_build
+CMD lambda_builder
