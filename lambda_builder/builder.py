@@ -76,9 +76,10 @@ class LambdaBuilder(object):
         pkg_name = self.src.split('/')[-1]
         os.environ['GOOS'] = 'linux'
         os.environ['GOARCH'] = 'amd64'
-        command = "go build -o {}".format(pkg_name)
-        process = subprocess.Popen(command.split(), stdout=subprocess.PIPE, env=os.environ, cwd=temp_dir)
-        output, error = process.communicate()
+        commands = ["go get", "go build -o {}".format(pkg_name)]
+        for command in commands:
+            process = subprocess.Popen(command.split(), stdout=subprocess.PIPE, env=os.environ, cwd=temp_dir)
+            output, error = process.communicate()
         os.makedirs(zip_temp)
         shutil.move("/".join([temp_dir,pkg_name]),"/".join([zip_temp,pkg_name]))
         shutil.make_archive(pkg_name, 'zip', zip_temp)
